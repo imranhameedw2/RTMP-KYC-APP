@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">RTMP Virtual Camera</string>
+    <string name="app_subtitle">Use an RTMP live stream as a camera source</string>
+    <string name="rtmp_stream_url">RTMP Stream URL</string>
+    <string name="enter_rtmp_url">Enter RTMP URL (rtmp://...)</string>
+    <string name="paste">PASTE</string>
+    <string name="scan_qr">SCAN QR</string>
+    <string name="qr_scanned_toast">Scanned RTMP URL: %1$s</string>
+    <string name="connect_live">CONNECT &amp; LIVE</string>
+    <string name="stop_stream">STOP STREAM</string>
+    <string name="camera_source">Camera Source</string>
+    <string name="real_camera">📷 REAL CAMERA</string>
+    <string name="rtmp_stream">📡 RTMP STREAM</string>
+    <string name="capture_photo">CAPTURE PHOTO</string>
+    <string name="record">RECORD</string>
+    <string name="stop_recording">STOP RECORDING</string>
+    <string name="switch_camera">Switch Lens</string>
+    <string name="settings">Settings</string>
+
+    <!-- Statuses -->
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connecting">Connecting...</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_streaming">Streaming</string>
+    <string name="status_reconnecting">Reconnecting...</string>
+    <string name="status_connection_error">Connection Error</string>
+    <string name="status_connection_lost">Connection Lost</string>
+
+    <!-- Section 20 Limitation Notice -->
+    <string name="about_virtual_camera_title">About Virtual Camera</string>
+    <string name="about_virtual_camera_message">RTMP Camera mode provides an RTMP stream as a camera/video source inside this application.\n\nStandard Android applications cannot replace the operating system\'s physical camera for every other application. System-wide camera replacement requires platform-level support or device-specific capabilities.\n\nThis app operates strictly within standard Android APIs and security guidelines.</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Stream Settings</string>
+    <string name="setting_auto_reconnect">Auto Reconnect</string>
+    <string name="setting_reconnect_interval">Reconnect Interval (ms)</string>
+    <string name="setting_buffer_size">Buffer Size (ms)</string>
+    <string name="setting_scaling_mode">Video Scaling Mode</string>
+    <string name="setting_save">Save Settings</string>
+</resources>

@@ -1,0 +1,9 @@
+{
+  "name": "RTMP Virtual Camera",
+  "description": "Android application and interactive simulator using an RTMP live stream as a camera source with CameraX, Media3/ExoPlayer, recording, snapshot, and Material 3 UI.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
