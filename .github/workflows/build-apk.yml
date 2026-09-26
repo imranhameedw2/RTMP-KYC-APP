@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build RTMP KYC Android APK
 
 on:
   workflow_dispatch:
@@ -7,42 +7,57 @@ on:
       - main
 
 jobs:
-  build:
+  build-apk:
+    name: Build Android APK
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      # 1. Download repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      # 2. Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
+      # 3. Install Bun
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # 4. Install web-app dependencies
       - name: Install dependencies
-        run: npm install
+        run: bun install --frozen-lockfile
 
-      - name: Build web app
-        run: npm run build
+      # 5. Build Google AI Studio web application
+      - name: Build web application
+        run: bun run build
 
-      - name: Set up Java
+      # 6. Setup Java required by Android/Gradle
+      - name: Setup Java
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 17
+          java-version: '17'
 
-      - name: Set up Android SDK
+      # 7. Setup Android SDK
+      - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      # 8. Build Android APK
       - name: Build APK
         working-directory: android-project
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace
 
+      # 9. Upload APK to GitHub Actions
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: RTMP-KYC-APP-debug-apk
+          name: RTMP-KYC-APP-debug
           path: android-project/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
